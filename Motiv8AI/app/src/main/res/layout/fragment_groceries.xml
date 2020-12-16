@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="workshop.g_s.motiv8ai.ui.groceries.GroceriesViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/tvFeedTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/incoming_item_feed"
+            android:gravity="center"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/etFilterInputBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert_filter"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:inputType="numberDecimal"
+            android:layout_below="@id/tvFeedTitle">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etFilterInputBox"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="100dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:onClick="@{()->viewModel.onStartButtonClick(etFilterInputBox)}"
+            android:text="@string/start"
+            android:textAllCaps="true"></Button>
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="1000dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/stop"
+            android:textAllCaps="true"
+            android:onClick="@{()->viewModel.onStopButtonClick()}"
+            android:layout_below="@id/etFilterInputBox"
+            android:layout_toRightOf="@id/btnStart"
+
+            ></Button>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvGroceries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_below="@id/btnStart"
+                tools:listitem="@layout/list_item_groceries"></androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Motiv8AI</string>
+    <string name="incoming_item_feed">Incoming Item Feed</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="insert_filter">Insert filter</string>
+</resources>
